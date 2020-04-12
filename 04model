@@ -68,33 +68,41 @@ class LogRegressionGM(object):
             net_input = self.net_input(X)
             output = self.activation(net_input)
             errors = (Y - output)
+            print (errors)
             self.w_[1:] += self.eta * X.T.dot(errors)
             self.w_[0] += self.eta * errors.sum()
 
             # cost
 
             cost = (-Y.dot(np.log(output)) - ((1 - Y).dot(np.log(1 - output))))
+            #print(cost)
             self.cost_.append(cost)
-            return self
+        return self
 
     def net_input(self, X):
         return np.dot(X, self.w_[1:]) + self.w_[0]
 
     def activation(self, z):
-        return 1. / (1. + np.exp(-np.clip(z,-500, 500)))
+        return 1. / (1. + np.exp(-z))
 
     def predict(self, X):
         return np.where(self.activation(self.net_input(X)) >= 0.5, 1, 0)
 
 
-lrgd = LogRegressionGM(eta=0.05, n_iter=10000, random_state=1)
+lrgd = LogRegressionGM(eta=0.05, n_iter=70, random_state=1)
+
 lrgd.fit(X_train1, Y_train1)
 X = np.reshape(X_test1, (X_test1.shape[0], -1))
 Y_pred=lrgd.predict(X)
 sum = 0
+
 for i in range(np.size(Y_test1)):
     if Y_test1[i] == Y_pred[i]:
         sum=sum+1
+acc= sum/Y_test1.size *100
+
 print(Y_test1.size)
-print(Y_pred.size)
 print(sum)
+
+
+print('acc:', acc, '%')
