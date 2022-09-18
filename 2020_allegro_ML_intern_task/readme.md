@@ -1,4 +1,5 @@
-# Intern allegro
+# 2020 allegro ML instern task solution
+
 
 Allegro 2020 internship task. Allegro xsummer experience
 
