@@ -7,9 +7,9 @@ Content:
 - use examples in examples directory
 
 Upscale b7
-![alt text](https://github.com/KamilBartocha/boml-srcnn/blob/master/Results.png)
+![alt text](https://github.com/KamilBartocha/machine-learning-self-academy/blob/master/2021_BOML_srcnn_project/Results.png)
 Upscale cat
-![alt text](https://github.com/KamilBartocha/boml-srcnn/blob/master/Results_v2.png)
+![alt text](https://github.com/KamilBartocha/machine-learning-self-academy/blob/master/2021_BOML_srcnn_project/Results_v2.png)
 
 Based on paper 
 [Image Super-Resolution Using Deep Convolutional Networks](https://arxiv.org/abs/1501.00092)
